@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/context/auth-context";
@@ -28,9 +28,14 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const searchParams = useSearchParams();
-  const initialTab = searchParams.get("tab") ?? "login";
-  const [tab, setTab] = useState(initialTab);
+  const [tab, setTab] = useState("login");
 
+  useEffect(() => {
+    const initialTab = searchParams.get("tab");
+    if (initialTab) {
+      setTab(initialTab);
+    }
+  }, [searchParams]);
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     await login(email, password);
