@@ -27,15 +27,15 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const searchParams = useSearchParams();
   const [tab, setTab] = useState("login");
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
     const initialTab = searchParams.get("tab");
     if (initialTab) {
       setTab(initialTab);
     }
-  }, [searchParams]);
+  }, []);
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     await login(email, password);
