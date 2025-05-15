@@ -5,24 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/auth-context";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Bell,
-  ChevronDown,
-  LogOut,
-  User,
-  Settings,
-  Wallet,
-} from "lucide-react";
-import Web3Auth from "@/components/web3-auth";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -47,9 +29,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     );
   }
 
-  // Links de navegação baseados no perfil do usuário
+  // Atualizar os links de navegação baseados no perfil do usuário
   const navLinks =
-    authState.user.role === "investor"
+    authState.user.role === "borrower"
       ? [
           {
             href: "/dashboard",
@@ -57,9 +39,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             active: pathname === "/dashboard",
           },
           {
-            href: "/investimentos",
-            label: "Investimentos",
-            active: pathname === "/investimentos",
+            href: "/emprestimos",
+            label: "Meus Empréstimos",
+            active: pathname === "/emprestimos",
           },
           { href: "/zk-kyc", label: "ZK-KYC", active: pathname === "/zk-kyc" },
           {
@@ -75,14 +57,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             active: pathname === "/dashboard",
           },
           {
-            href: "/meus-projetos",
-            label: "Meus Projetos",
-            active: pathname === "/meus-projetos",
+            href: "/solicitacoes",
+            label: "Solicitações",
+            active: pathname === "/solicitacoes",
           },
           {
-            href: "/novo-projeto",
-            label: "Novo Projeto",
-            active: pathname === "/novo-projeto",
+            href: "/ofertas",
+            label: "Minhas Ofertas",
+            active: pathname === "/ofertas",
           },
           {
             href: "/relatorios-zk",
@@ -91,11 +73,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           },
         ];
 
-  // Título do dashboard baseado no perfil do usuário
+  // Atualizar o título do dashboard baseado no perfil do usuário
   const dashboardTitle =
-    authState.user.role === "investor"
-      ? "Dashboard do Investidor"
-      : "Dashboard do Proponente";
+    authState.user.role === "borrower"
+      ? "Dashboard do Solicitante"
+      : "Dashboard da Instituição";
 
   return (
     <div className="min-h-screen bg-gray-50">

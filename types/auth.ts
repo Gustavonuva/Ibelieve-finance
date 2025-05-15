@@ -1,4 +1,4 @@
-export type UserRole = "investor" | "proposer" | "admin"
+export type UserRole = "borrower" | "lender" | "admin"
 export type WalletType = "talisman" | "subwallet" | "metamask"
 
 export interface User {
@@ -9,6 +9,7 @@ export interface User {
   wallets?: WalletAddress[]
   kycStatus?: "pending" | "verified" | "rejected"
   kycVerifiedAt?: Date
+  creditScore?: number
   createdAt: Date
   updatedAt: Date
 }

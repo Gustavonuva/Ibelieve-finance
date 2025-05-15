@@ -42,7 +42,7 @@ export default function ReturnOverTimeChart() {
   return (
     <Card>
       <CardContent className="p-6">
-        <h2 className="text-lg font-bold mb-6">Retorno Mensal (%)</h2>
+        <h2 className="text-lg font-bold mb-6">Taxa de Juros Mensal (%)</h2>
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
@@ -56,30 +56,26 @@ export default function ReturnOverTimeChart() {
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
-              <YAxis 
-                tickFormatter={(value) => `${value}%`}
-              />
-              <Tooltip 
-                formatter={(value: number) => [`${value}%`, ""]}
-              />
+              <YAxis tickFormatter={(value) => `${value}%`} />
+              <Tooltip formatter={(value: number) => [`${value}%`, ""]} />
               <Legend />
-              <Line 
-                type="monotone" 
-                dataKey="esperado" 
-                name="Retorno Esperado" 
-                stroke="#8884d8" 
-                activeDot={{ r: 8 }} 
+              <Line
+                type="monotone"
+                dataKey="esperado"
+                name="Taxa Contratada"
+                stroke="#8884d8"
+                activeDot={{ r: 8 }}
               />
-              <Line 
-                type="monotone" 
-                dataKey="real" 
-                name="Retorno Real" 
-                stroke="#82ca9d" 
+              <Line
+                type="monotone"
+                dataKey="real"
+                name="Taxa Efetiva"
+                stroke="#82ca9d"
               />
             </LineChart>
           </ResponsiveContainer>
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

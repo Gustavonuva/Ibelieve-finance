@@ -9,10 +9,10 @@ export default function Sobre() {
       {/* Hero Section */}
       <section className="bg-blue-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Sobre a Ibelieve finance</h1>
+          <h1 className="text-4xl font-bold mb-4">Sobre a ZK Finance</h1>
           <p className="text-xl max-w-3xl mx-auto">
-            Transformando o mercado de investimentos com privacidade e
-            transparência através da tecnologia Zero-Knowledge
+            Transformando o mercado de crédito com privacidade e segurança
+            através da tecnologia Zero-Knowledge
           </p>
         </div>
       </section>
@@ -24,21 +24,21 @@ export default function Sobre() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Nossa Missão</h2>
               <p className="text-lg text-gray-700 mb-6">
-                A Ibelieve finance nasceu com o propósito de democratizar o
-                acesso a investimentos em projetos inovadores, garantindo total
-                privacidade dos dados pessoais e, ao mesmo tempo, oferecendo
-                transparência nas transações.
+                A ZK Finance nasceu com o propósito de democratizar o acesso ao
+                crédito, permitindo que pessoas comprovem sua solvência
+                financeira sem expor dados sensíveis, garantindo privacidade e
+                segurança.
               </p>
               <p className="text-lg text-gray-700">
                 Acreditamos que a tecnologia Zero-Knowledge Proof (ZKP) pode
                 revolucionar o mercado financeiro, permitindo verificações de
-                identidade sem exposição de dados sensíveis, enquanto mantém a
+                solvência sem exposição de dados sensíveis, enquanto mantém a
                 conformidade com regulamentações.
               </p>
             </div>
             <div className="flex justify-center">
               <Image
-                src="/placeholder.svg?height=400&width=400"
+                src="/tech.png"
                 alt="Nossa Missão"
                 width={400}
                 height={400}
@@ -67,9 +67,10 @@ export default function Sobre() {
                   </h3>
                   <p className="text-gray-700">
                     Utilizamos provas criptográficas avançadas que permitem
-                    verificar a validade de uma informação sem revelar a
-                    informação em si. Isso garante que seus dados pessoais nunca
-                    sejam expostos durante o processo de KYC.
+                    verificar a validade de informações financeiras sem revelar
+                    os dados em si. Isso garante que seus extratos bancários e
+                    histórico financeiro nunca sejam expostos durante o processo
+                    de análise de crédito.
                   </p>
                 </div>
               </CardContent>
@@ -82,14 +83,13 @@ export default function Sobre() {
                     <BarChart className="h-8 w-8 text-blue-600" />
                   </div>
                   <h3 className="text-xl font-bold mb-4">
-                    Blockchain e Smart Contracts
+                    Inteligência Artificial
                   </h3>
                   <p className="text-gray-700">
-                    Todas as transações são registradas em blockchain,
-                    garantindo imutabilidade e transparência. Nossos smart
-                    contracts automatizam processos como distribuição de
-                    recursos e gestão de participações, eliminando
-                    intermediários e reduzindo custos.
+                    Nossa IA analisa padrões de comportamento financeiro e
+                    avalia o risco de crédito sem ter acesso direto aos dados
+                    sensíveis, garantindo análises justas e precisas com total
+                    privacidade.
                   </p>
                 </div>
               </CardContent>
@@ -113,9 +113,9 @@ export default function Sobre() {
                   </div>
                   <h3 className="text-xl font-bold mb-4">Privacidade</h3>
                   <p className="text-gray-700">
-                    Acreditamos que seus dados pessoais pertencem a você. Nossa
-                    plataforma foi projetada para garantir que você mantenha
-                    controle total sobre suas informações.
+                    Acreditamos que seus dados financeiros pertencem a você.
+                    Nossa plataforma foi projetada para garantir que você
+                    mantenha controle total sobre suas informações.
                   </p>
                 </div>
               </CardContent>
@@ -130,8 +130,8 @@ export default function Sobre() {
                   <h3 className="text-xl font-bold mb-4">Transparência</h3>
                   <p className="text-gray-700">
                     Embora protejamos a privacidade dos usuários, acreditamos na
-                    total transparência das transações e fluxos financeiros,
-                    permitindo que todos acompanhem o uso dos recursos.
+                    total transparência dos termos de crédito e taxas,
+                    permitindo decisões financeiras conscientes.
                   </p>
                 </div>
               </CardContent>
@@ -174,8 +174,8 @@ export default function Sobre() {
                   <h3 className="text-xl font-bold mb-1">João Silva</h3>
                   <p className="text-blue-600 mb-4">CEO & Fundador</p>
                   <p className="text-gray-700">
-                    Especialista em criptografia e blockchain com mais de 10
-                    anos de experiência no mercado financeiro.
+                    Especialista em criptografia e finanças com mais de 10 anos
+                    de experiência no mercado bancário.
                   </p>
                 </div>
               </CardContent>
@@ -212,10 +212,10 @@ export default function Sobre() {
                     className="rounded-full mb-4"
                   />
                   <h3 className="text-xl font-bold mb-1">Carlos Mendes</h3>
-                  <p className="text-blue-600 mb-4">COO</p>
+                  <p className="text-blue-600 mb-4">Diretor de IA</p>
                   <p className="text-gray-700">
-                    Especialista em operações com experiência em fintechs e
-                    empresas de tecnologia financeira.
+                    Especialista em inteligência artificial e análise de risco
+                    com experiência em fintechs e instituições financeiras.
                   </p>
                 </div>
               </CardContent>
@@ -228,21 +228,18 @@ export default function Sobre() {
       <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">
-            Junte-se à Revolução Financeira
+            Junte-se à Revolução do Crédito
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Faça parte de uma comunidade que está transformando o futuro dos
-            investimentos com privacidade e transparência.
+            Faça parte de uma comunidade que está transformando o futuro do
+            crédito com privacidade e segurança.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button className="bg-white text-blue-600 hover:bg-blue-50">
-              Explorar Projetos
+              Solicitar Crédito
             </Button>
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-blue-700"
-            >
-              Cadastrar Projeto
+            <Button variant="ghost" className="bg-white text-blue-600 ">
+              Para Instituições
             </Button>
           </div>
         </div>

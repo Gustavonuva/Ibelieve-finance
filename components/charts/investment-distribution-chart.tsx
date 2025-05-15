@@ -12,11 +12,11 @@ import { Card, CardContent } from "@/components/ui/card"
 
 // Dados de exemplo para o gráfico
 const data = [
-  { name: 'Tecnologia', value: 65000 },
-  { name: 'Sustentabilidade', value: 30000 },
-  { name: 'Finanças', value: 15000 },
-  { name: 'Saúde', value: 15000 },
-]
+  { name: "Crédito Pessoal", value: 65000 },
+  { name: "Financiamento Auto", value: 30000 },
+  { name: "Crédito Imobiliário", value: 15000 },
+  { name: "Crédito Empresarial", value: 15000 },
+];
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444']
 

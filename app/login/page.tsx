@@ -113,10 +113,10 @@ export default function LoginPage() {
                   Para testar, use:
                   <br />
                   <span className="font-medium">joao@example.com</span>{" "}
-                  (investidor) ou
+                  (Solicitante) ou
                   <br />
-                  <span className="font-medium">carlos@example.com</span>{" "}
-                  (proponente)
+                  <span className="font-medium">banco@example.com</span>{" "}
+                  (Instituição)
                   <br />
                   Qualquer senha funcionará.
                 </p>

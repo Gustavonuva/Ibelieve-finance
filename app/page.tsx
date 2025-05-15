@@ -22,24 +22,22 @@ export default function Home() {
         <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Investimentos Seguros com Privacidade Garantida
+              Crédito Privado com Segurança Garantida
             </h1>
             <p className="text-lg text-gray-700 mb-8">
-              Plataforma P2P de investimentos com verificação ZK-KYC, unindo
-              transparência e privacidade para um futuro financeiro mais seguro.
+              Plataforma de financiamento que utiliza Zero-Knowledge Proofs,
+              permitindo comprovar solvência financeira sem expor dados
+              sensíveis.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/projetos">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3">
-                  Explorar Projetos
-                </Button>
-              </Link>
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3">
+                Solicitar Crédito
+              </Button>
               <Button
                 variant="outline"
                 className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3"
-                onClick={handleCadastrarProjetoClick}
               >
-                Cadastrar Projeto
+                Para Instituições Financeiras
               </Button>
             </div>
           </div>
@@ -84,7 +82,7 @@ export default function Home() {
               </div>
               <h3 className="font-bold mb-2">Verificação ZK-KYC</h3>
               <p className="text-gray-600">
-                Processo de verificação seguro mantendo sua privacidade
+                Comprove sua solvência financeira mantendo seus dados privados
               </p>
             </div>
 
@@ -105,9 +103,10 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="font-bold mb-2">Explore Projetos</h3>
+              <h3 className="font-bold mb-2">Análise de Crédito com IA</h3>
               <p className="text-gray-600">
-                Encontre oportunidades alinhadas com seus objetivos
+                Avaliação de risco personalizada sem exposição de dados
+                sensíveis
               </p>
             </div>
 
@@ -128,7 +127,7 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="font-bold mb-2">Invista com Segurança</h3>
+              <h3 className="font-bold mb-2">Solicite com Segurança</h3>
               <p className="text-gray-600">
                 Transações protegidas e verificadas on-chain
               </p>
@@ -151,9 +150,9 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="font-bold mb-2">Acompanhe Resultados</h3>
+              <h3 className="font-bold mb-2">Acompanhe seu Crédito</h3>
               <p className="text-gray-600">
-                Dashboard completo para monitorar investimentos
+                Dashboard completo para monitorar empréstimos e pagamentos
               </p>
             </div>
           </div>
@@ -167,7 +166,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-6">Para Investidores</h3>
+              <h3 className="text-xl font-bold mb-6">Para Solicitantes</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <svg
@@ -184,7 +183,7 @@ export default function Home() {
                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                     />
                   </svg>
-                  <span>Verificação KYC sem exposição de dados</span>
+                  <span>Comprovação de solvência sem exposição de dados</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -201,7 +200,7 @@ export default function Home() {
                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                     />
                   </svg>
-                  <span>Portfólio diversificado de projetos</span>
+                  <span>Acesso a melhores taxas de juros</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -235,13 +234,15 @@ export default function Home() {
                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                     />
                   </svg>
-                  <span>Transparência total dos investimentos</span>
+                  <span>Processo de aprovação mais rápido</span>
                 </li>
               </ul>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-6">Para Proponentes</h3>
+              <h3 className="text-xl font-bold mb-6">
+                Para Instituições Financeiras
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <svg
@@ -258,7 +259,7 @@ export default function Home() {
                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                     />
                   </svg>
-                  <span>Acesso a uma base qualificada de investidores</span>
+                  <span>Análise de risco aprimorada com IA</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -275,7 +276,7 @@ export default function Home() {
                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                     />
                   </svg>
-                  <span>Processo de captação simplificado</span>
+                  <span>Redução de fraudes e inadimplência</span>
                 </li>
                 <li className="flex items-start">
                   <svg
@@ -309,7 +310,7 @@ export default function Home() {
                       d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                     />
                   </svg>
-                  <span>Visibilidade para seu projeto</span>
+                  <span>Conformidade regulatória simplificada</span>
                 </li>
               </ul>
             </div>
@@ -321,27 +322,23 @@ export default function Home() {
       <section className="bg-blue-600 py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">
-            Pronto para começar?
+            Pronto para transformar sua experiência de crédito?
           </h2>
           <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
-            Junte-se a uma comunidade de investidores e empreendedores que estão
-            transformando o futuro dos investimentos.
+            Junte-se a uma comunidade de usuários e instituições financeiras que
+            estão revolucionando o acesso ao crédito com privacidade e
+            segurança.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/projetos">
-              <Button
-                variant="outline"
-                className="bg-white text-blue-600 hover:bg-blue-50"
-              >
-                Explorar Projetos
-              </Button>
-            </Link>
+            <Button className="bg-white text-blue-600 hover:bg-blue-50">
+              Solicitar Crédito
+            </Button>
             <Button
               variant="outline"
               className="bg-white text-blue-600 hover:bg-blue-50"
               onClick={handleCadastrarProjetoClick}
             >
-              Cadastrar Projeto
+              Para Instituições
             </Button>
           </div>
         </div>
@@ -352,10 +349,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-bold text-lg mb-4">Ibelieve finance</h3>
+              <h3 className="font-bold text-lg mb-4">ZK Finance</h3>
               <p className="text-gray-400 text-sm">
-                Plataforma de investimentos P2P com privacidade e segurança
-                garantidas por tecnologia ZK.
+                Plataforma de crédito com privacidade e segurança garantidas por
+                tecnologia ZK.
               </p>
             </div>
 
@@ -478,8 +475,8 @@ export default function Home() {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
             <p>
-              &copy; {new Date().getFullYear()} Ibelieve finance. Todos os
-              direitos reservados.
+              &copy; {new Date().getFullYear()} ZK Finance. Todos os direitos
+              reservados.
             </p>
           </div>
         </div>

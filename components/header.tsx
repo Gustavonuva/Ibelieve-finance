@@ -56,17 +56,11 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
-          <Link href="/projetos" className="text-gray-700 hover:text-blue-600">
-            Projetos
-          </Link>
           <Link
             href="/como-funciona"
             className="text-gray-700 hover:text-blue-600"
           >
             Como Funciona
-          </Link>
-          <Link href="/" className="text-gray-700 hover:text-blue-600">
-            Benefícios
           </Link>
           <Link href="/sobre" className="text-gray-700 hover:text-blue-600">
             Sobre
@@ -74,6 +68,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center space-x-4">
+          <Web3Auth />
           <Link href="/login">
             <Button variant="ghost" className="text-blue-600">
               Entrar
@@ -91,7 +86,7 @@ export default function Header() {
   const AuthenticatedHeader = () => {
     // Links de navegação baseados no perfil do usuário
     const navLinks =
-      authState.user?.role === "investor"
+      authState.user?.role === "borrower"
         ? [
             {
               href: "/dashboard",
@@ -100,18 +95,13 @@ export default function Header() {
             },
             {
               href: "/",
-              label: "Investimentos",
-              active: pathname === "/investimentos",
+              label: "Créditos",
+              active: pathname === "/creditos",
             },
             {
               href: "/",
               label: "ZK-KYC",
               active: pathname === "/zk-kyc",
-            },
-            {
-              href: "/",
-              label: "Carteira",
-              active: pathname === "/carteira",
             },
           ]
         : [
@@ -119,16 +109,6 @@ export default function Header() {
               href: "/dashboard",
               label: "Dashboard",
               active: pathname === "/dashboard",
-            },
-            {
-              href: "/",
-              label: "Meus Projetos",
-              active: pathname === "/meus-projetos",
-            },
-            {
-              href: "/",
-              label: "Novo Projeto",
-              active: pathname === "/novo-projeto",
             },
             {
               href: "/",
@@ -218,16 +198,7 @@ export default function Header() {
                   <span>Configurações</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                {/* Opção para alternar entre perfis */}
-                {authState.user?.role === "investor" ? (
-                  <DropdownMenuItem onClick={() => switchRole("proposer")}>
-                    <span>Mudar para Proponente</span>
-                  </DropdownMenuItem>
-                ) : (
-                  <DropdownMenuItem onClick={() => switchRole("investor")}>
-                    <span>Mudar para Investidor</span>
-                  </DropdownMenuItem>
-                )}
+
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>
                   <LogOut className="mr-2 h-4 w-4" />

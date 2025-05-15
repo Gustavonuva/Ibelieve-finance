@@ -256,6 +256,7 @@ export class WalletService {
   }
 
   getInstalledProviders(): WalletProvider[] {
+    if (typeof window === "undefined") return [] // <-- Proteção contra SSR
     return this.providers.filter((provider) => provider.isInstalled())
   }
 

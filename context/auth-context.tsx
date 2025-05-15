@@ -14,7 +14,7 @@ import type {
   WalletAddress,
   WalletType,
 } from "@/types/auth";
-import { walletService } from "@/service/wallet-service";
+import { WalletInfo, walletService } from "@/service/wallet-service";
 
 // Simulação de API - em um projeto real, isso seria substituído por chamadas reais à API
 const mockUsers: User[] = [
@@ -22,17 +22,18 @@ const mockUsers: User[] = [
     id: "1",
     name: "João Silva",
     email: "joao@example.com",
-    role: "investor",
+    role: "borrower",
     kycStatus: "verified",
     kycVerifiedAt: new Date(2025, 3, 15),
+    creditScore: 850,
     createdAt: new Date(2024, 1, 10),
     updatedAt: new Date(2025, 3, 15),
   },
   {
     id: "2",
-    name: "Carlos Empreendedor",
-    email: "carlos@example.com",
-    role: "proposer",
+    name: "Banco Digital Alpha",
+    email: "banco@example.com",
+    role: "lender",
     kycStatus: "verified",
     kycVerifiedAt: new Date(2024, 11, 5),
     createdAt: new Date(2024, 10, 20),
@@ -45,6 +46,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
   connectWallet: (walletType: WalletType) => Promise<void>;
+  walletConnected: WalletInfo | null;
   disconnectWallet: (walletId: string) => Promise<void>;
   setPrimaryWallet: (walletId: string) => Promise<void>;
   switchRole: (role: UserRole) => Promise<void>;
@@ -59,6 +61,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     isLoading: true,
     error: null,
   });
+
+  // Novo estado para carteira conectada quando usuário NÃO estiver logado
+  const [walletConnected, setWalletConnected] = useState<WalletInfo | null>(
+    null
+  );
 
   // Verificar se o usuário já está logado ao carregar a página
   useEffect(() => {
@@ -131,58 +138,60 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       isLoading: false,
       error: null,
     });
+
+    // Limpa carteira conectada ao deslogar
+    setWalletConnected(null);
   };
 
   const connectWallet = async (walletType: WalletType) => {
     try {
-      if (!authState.user) {
-        throw new Error("Usuário não está logado");
-      }
-
-      // Conectar carteira usando o serviço
       const walletInfo = await walletService.connectWallet(walletType);
 
       if (!walletInfo) {
         throw new Error("Falha ao conectar carteira");
       }
 
-      // Verificar se a carteira já está conectada
-      const walletExists = authState.user.wallets?.some(
-        (w) =>
-          w.address.toLowerCase() === walletInfo.address.toLowerCase() &&
-          w.walletType === walletInfo.type
-      );
+      // Se o usuário estiver logado, vincula a carteira a ele
+      if (authState.user) {
+        const walletExists = authState.user.wallets?.some(
+          (w) =>
+            w.address.toLowerCase() === walletInfo.address.toLowerCase() &&
+            w.walletType === walletInfo.type
+        );
 
-      if (walletExists) {
-        throw new Error("Esta carteira já está conectada à sua conta");
+        if (walletExists) {
+          throw new Error("Esta carteira já está conectada à sua conta");
+        }
+
+        const newWallet: WalletAddress = {
+          id: Date.now().toString(),
+          userId: authState.user.id,
+          address: walletInfo.address,
+          network: walletInfo.network,
+          walletType: walletInfo.type,
+          walletName: walletInfo.name,
+          isPrimary:
+            !authState.user.wallets || authState.user.wallets.length === 0,
+          createdAt: new Date(),
+        };
+
+        const updatedUser = {
+          ...authState.user,
+          wallets: [...(authState.user.wallets || []), newWallet],
+        };
+
+        localStorage.setItem("zkfinance_user", JSON.stringify(updatedUser));
+        setAuthState({
+          ...authState,
+          user: updatedUser,
+        });
+
+        // Limpa carteira temporária (caso houvesse)
+        setWalletConnected(null);
+      } else {
+        // Se o usuário NÃO estiver logado, apenas registra o endereço da carteira em memória
+        setWalletConnected(walletInfo);
       }
-
-      // Criar nova carteira
-      const newWallet: WalletAddress = {
-        id: Date.now().toString(),
-        userId: authState.user.id,
-        address: walletInfo.address,
-        network: walletInfo.network,
-        walletType: walletInfo.type,
-        walletName: walletInfo.name,
-        isPrimary:
-          !authState.user.wallets || authState.user.wallets.length === 0,
-        createdAt: new Date(),
-      };
-
-      // Atualizar usuário
-      const updatedUser = {
-        ...authState.user,
-        wallets: [...(authState.user.wallets || []), newWallet],
-      };
-
-      // Em um projeto real, isso seria uma chamada à API
-      localStorage.setItem("zkfinance_user", JSON.stringify(updatedUser));
-
-      setAuthState({
-        ...authState,
-        user: updatedUser,
-      });
     } catch (error) {
       setAuthState((prev) => ({
         ...prev,
@@ -329,6 +338,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setPrimaryWallet,
         switchRole,
         getInstalledWallets,
+        walletConnected, // estado da carteira conectada (quando não logado)
       }}
     >
       {children}

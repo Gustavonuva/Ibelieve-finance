@@ -85,36 +85,44 @@ export default function InvestmentHistoryChart() {
     <Card>
       <CardContent className="p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-bold">Histórico de Investimentos</h2>
+          <h2 className="text-lg font-bold">Histórico de Empréstimos</h2>
           <div className="flex gap-2">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className={`text-xs ${period === "1M" ? "bg-blue-600 text-white" : ""}`}
+            <Button
+              variant="outline"
+              size="sm"
+              className={`text-xs ${
+                period === "1M" ? "bg-blue-600 text-white" : ""
+              }`}
               onClick={() => setPeriod("1M")}
             >
               1M
             </Button>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className={`text-xs ${period === "3M" ? "bg-blue-600 text-white" : ""}`}
+            <Button
+              variant="outline"
+              size="sm"
+              className={`text-xs ${
+                period === "3M" ? "bg-blue-600 text-white" : ""
+              }`}
               onClick={() => setPeriod("3M")}
             >
               3M
             </Button>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className={`text-xs ${period === "6M" ? "bg-blue-600 text-white" : ""}`}
+            <Button
+              variant="outline"
+              size="sm"
+              className={`text-xs ${
+                period === "6M" ? "bg-blue-600 text-white" : ""
+              }`}
               onClick={() => setPeriod("6M")}
             >
               6M
             </Button>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className={`text-xs ${period === "1A" ? "bg-blue-600 text-white" : ""}`}
+            <Button
+              variant="outline"
+              size="sm"
+              className={`text-xs ${
+                period === "1A" ? "bg-blue-600 text-white" : ""
+              }`}
               onClick={() => setPeriod("1A")}
             >
               1A
@@ -134,30 +142,28 @@ export default function InvestmentHistoryChart() {
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="date" />
-              <YAxis 
-                tickFormatter={(value) => `R$ ${value/1000}k`}
-              />
-              <Tooltip 
+              <YAxis tickFormatter={(value) => `R$ ${value / 1000}k`} />
+              <Tooltip
                 formatter={(value: number) => [formatCurrency(value), ""]}
                 labelFormatter={(label) => `Data: ${label}`}
               />
               <Legend />
-              <Area 
-                type="monotone" 
-                dataKey="investido" 
-                name="Valor Investido" 
+              <Area
+                type="monotone"
+                dataKey="investido"
+                name="Valor Investido"
                 stackId="1"
-                stroke="#3b82f6" 
-                fill="#3b82f6" 
+                stroke="#3b82f6"
+                fill="#3b82f6"
                 fillOpacity={0.6}
               />
-              <Area 
-                type="monotone" 
-                dataKey="retorno" 
-                name="Retorno" 
+              <Area
+                type="monotone"
+                dataKey="retorno"
+                name="Retorno"
                 stackId="1"
-                stroke="#10b981" 
-                fill="#10b981" 
+                stroke="#10b981"
+                fill="#10b981"
                 fillOpacity={0.6}
               />
             </AreaChart>
@@ -165,5 +171,5 @@ export default function InvestmentHistoryChart() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
